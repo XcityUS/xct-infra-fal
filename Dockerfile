@@ -14,7 +14,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY gateway/pyproject.toml /app/
 COPY gateway/src /app/src
 COPY gateway/start.sh /app/start.sh
-RUN chmod +x /app/start.sh
+COPY gateway/bin /usr/local/bin
+RUN chmod +x /app/start.sh /usr/local/bin/fal
 
 # Install the local package (so `gateway` module resolves)
 RUN pip install -e /app

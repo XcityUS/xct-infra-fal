@@ -1,0 +1,5 @@
+#!/bin/sh
+# Railway Start Command fallback wrapper
+# If Dashboard still has "fal serve" (or any fal command), this hijacks it
+# and launches the actual gateway.
+exec uvicorn gateway.main:app --host 0.0.0.0 --port "${PORT:-8080}"
