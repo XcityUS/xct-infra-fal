@@ -11,7 +11,7 @@ version_file = "src/fal/_fal_version.py"
 
 [tool.setuptools.packages.find]
 where = ["src", "openapi-fal-rest"]
-include = ["fal", "openapi_fal_rest"]
+include = ["fal*", "openapi_fal_rest*"]
 namespaces = false
 
 [project]
