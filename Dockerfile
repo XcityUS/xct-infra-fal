@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY gateway/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+COPY gateway/pyproject.toml /app/
 COPY gateway/src /app/src
 
 # Install the local package (so `gateway` module resolves)
