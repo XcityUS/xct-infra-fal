@@ -13,6 +13,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY gateway/pyproject.toml /app/
 COPY gateway/src /app/src
+COPY gateway/start.sh /app/start.sh
+RUN chmod +x /app/start.sh
 
 # Install the local package (so `gateway` module resolves)
 RUN pip install -e /app
@@ -21,4 +23,4 @@ RUN pip install -e /app
 ENV PORT=8080
 EXPOSE 8080
 
-CMD uvicorn gateway.main:app --host 0.0.0.0 --port ${PORT}
+ENTRYPOINT ["/app/start.sh"]
